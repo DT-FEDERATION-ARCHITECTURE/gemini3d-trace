@@ -10,31 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Gemini3DEmulator -- Producer (T1)
- *
- * Simulates the Gemini3D robot sensor by reading a CSV trace file
- * line-by-line and writing each measurement into the CircularFIFO.
- *
- * In production, this would be replaced by a real sensor socket/API.
- * The contract is: "I produce measurements, I write them to the FIFO,
- * I don't care who consumes them or how fast."
- *
- * The period parameter controls the emission rate:
- *   - 0ms     = full speed (for batch replay)
- *   - 40ms    = ~25Hz (real Gemini3D sensor rate)
- *   - custom  = any rate for testing
- *
- * Pseudocode (from the architecture):
- *
- *   emulator(trace, period, fifo):
- *     while (true)
- *       var measurement = trace.read()
- *       fifo.write(measurement)
- *       Thread.sleep(period)
- *
- * Implements Runnable so it can be launched as its own thread.
- */
+
 public class Gemini3DEmulator implements Runnable {
 
     private final String filePath;
@@ -93,7 +69,6 @@ public class Gemini3DEmulator implements Runnable {
 
     /**
      * Read the CSV line-by-line, write each Reading into the FIFO,
-     * sleep between emissions, then close the FIFO when done.
      */
     public void start() throws IOException, InterruptedException {
         startTimeMs = System.currentTimeMillis();
@@ -125,7 +100,7 @@ public class Gemini3DEmulator implements Runnable {
                 }
             }
 
-            // -- Stream line by line ------------------------------------------
+            // -- Stream line by line ---------------------
             String line;
             int index = 0;
 
@@ -173,7 +148,7 @@ public class Gemini3DEmulator implements Runnable {
         }
     }
 
-    // --- CSV Parsing ---------------------------------------------------------
+    // --- CSV Parsing ---
 
     private Reading parseLine(int index, String line) {
         String[] values = line.split(String.valueOf(delimiter), -1);

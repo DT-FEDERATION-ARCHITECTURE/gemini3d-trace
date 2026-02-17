@@ -64,7 +64,7 @@ public class Main {
         System.out.println();
 
         try {
-            String csvFile = (args.length > 0) ? args[0] : "sample.csv";
+            String csvFile = (args.length > 0) ? args[0] : "egm.csv";
 
             // ==============================================================
             // 1. FIFO = new CircularFIFO(capacity)

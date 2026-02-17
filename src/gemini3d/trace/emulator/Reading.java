@@ -6,14 +6,6 @@ import java.util.Map;
 
 /**
  * Reading = State = Measurement (Meas)
- *
- * Immutable snapshot of a single sensor measurement from the Gemini3D robot.
- * Each reading carries an index (its position in the trace) and a map of
- * column->value pairs representing the full state at that instant.
- *
- * In the SLI context:
- *   - This is the generic Meas type
- *   - It serves as both I (input) and C (configuration) for TraceSemanticsCip
  */
 public class Reading {
 

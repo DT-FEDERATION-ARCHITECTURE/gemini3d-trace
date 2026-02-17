@@ -2,7 +2,7 @@ package gemini3d.trace.sequencer;
 
 import gemini3d.trace.fifo.CircularFIFO;
 import gemini3d.trace.semantics.DeterministicIOSemantics;
-import gemini3d.trace.semantics.DeterministicIOSemantics.Pair;
+import gemini3d.trace.semantics.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,35 +10,8 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-/**
- * Sequencer -- Generic SLI execution engine.
- *
- * The Sequencer drives any DeterministicIOSemantics by:
- *   1. Getting the initial configuration from the SLI
- *   2. Reading inputs from the CircularFIFO
- *   3. Calling sli.actions() and sli.execute() in a loop
- *   4. Forwarding outputs to a viewer/listener
- *
- * Pseudocode (from the architecture):
- *
- *   Sequencer(sli, fifo, viewer):
- *     current = sli.initial().any
- *     while (current != NULL)
- *       var measurement = fifo.read()
- *       action = sli.actions(measurement, current).any
- *       if (action == NULL) break
- *       (output, current) = sli.execute(action, measurement, current).any
- *       viewer.display(output)
- *
- * The Sequencer doesn't know what kind of semantics it's running.
- * Swap the SLI, get different behavior. Same Sequencer.
- *
- * Type parameters:
- *   I -- Input type  (e.g., Reading/Meas)
- *   O -- Output type (e.g., Optional(StepCip))
- *   A -- Action type (e.g., MeasAction)
- *   C -- Config type (e.g., Reading/Meas -- the "last" measurement)
- */
+
+
 public class Sequencer<I, O, A, C> implements Runnable {
 
     private final DeterministicIOSemantics<I, O, A, C> sli;
@@ -75,7 +48,6 @@ public class Sequencer<I, O, A, C> implements Runnable {
     /**
      * Registers a listener for outputs (Steps).
      * This is the viewer.display(output) from the pseudocode.
-     * Will become a NextJS API endpoint later.
      */
     public void onOutput(Consumer<O> listener) {
         outputListeners.add(listener);
@@ -103,13 +75,6 @@ public class Sequencer<I, O, A, C> implements Runnable {
 
     /**
      * The SLI execution loop.
-     *
-     * Follows the boss's pseudocode exactly:
-     *   current = sli.initial().any
-     *   loop:
-     *     measurement = fifo.read()
-     *     action = sli.actions(measurement, current).any
-     *     (output, current) = sli.execute(action, measurement, current).any
      */
     public void start() throws InterruptedException {
         startTimeMs = System.currentTimeMillis();

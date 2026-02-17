@@ -4,38 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * CircularFIFO -- Ring buffer for real-time producer-consumer.
- *
- * Semantics:
- *   write() -- NEVER blocks. If full, overwrites the oldest entry.
- *              The producer (sensor/emulator) must never be slowed down.
- *   read()  -- BLOCKS if empty. The consumer waits for data.
- *              Returns null when the FIFO is closed (end of stream).
- *
- * This is the correct buffer for a real-time digital twin:
- *   - Sensor pushes at fixed rate (e.g., 25Hz) -- cannot slow down
- *   - If consumer is slow, old stale data is dropped
- *   - Consumer always gets the most recent available data
- *
- * Architecture:
- *
- *   write()                                          read()
- *     |                                                ^
- *     v                                                |
- *   +----+----+----+----+----+----+----+----+        |
- *   | m3 | m4 | m5 | m6 | m7 |    |    |    |  ----->+
- *   +----+----+----+----+----+----+----+----+
- *     ^                   ^    ^
- *     |                   |    |
- *   readPos           writePos |
- *                        count=5
- *
- * When full (count == capacity), write() advances readPos
- * (drops the oldest) and overwrites.
- *
- * Thread-safe via ReentrantLock + Condition.
- */
+
 public class CircularFIFO<T> {
 
     private final T[] buffer;
@@ -74,7 +43,6 @@ public class CircularFIFO<T> {
         this.notEmpty = lock.newCondition();
     }
 
-    // --- Producer API --------------------------------------------------------
 
     /**
      * Writes an item into the FIFO. NEVER blocks.
@@ -110,7 +78,6 @@ public class CircularFIFO<T> {
 
     /**
      * Closes the FIFO. No more data will be written.
-     * Any blocked reader will wake up and receive null.
      */
     public void close() {
         lock.lock();
@@ -122,13 +89,8 @@ public class CircularFIFO<T> {
         }
     }
 
-    // --- Consumer API --------------------------------------------------------
 
     /**
-     * Reads the oldest item from the FIFO.
-     * BLOCKS if the buffer is empty (waits for data).
-     * Returns null if the FIFO is closed and empty (end of stream).
-     *
      * @return the oldest item, or null if closed and empty
      * @throws InterruptedException if the thread is interrupted while waiting
      */
