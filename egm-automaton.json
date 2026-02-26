@@ -1,0 +1,88 @@
+{
+  "name": "Gemini3DPrintProcess",
+  "space": {
+    "states": ["IDLE", "MOVING", "PRINTING"],
+    "variables": [
+      { "name": "x", "type": "float", "initialValue": 0.0 },
+      { "name": "y", "type": "float", "initialValue": 0.0 },
+      { "name": "z", "type": "float", "initialValue": 0.0 },
+      { "name": "vitesseTCP", "type": "float", "initialValue": 0.0 },
+      { "name": "vitesseExtrudeur", "type": "float", "initialValue": 0.0 },
+      { "name": "stepCount", "type": "int", "initialValue": 0 }
+    ]
+  },
+  "initial": {
+    "state": "IDLE",
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0,
+    "vitesseTCP": 0.0,
+    "vitesseExtrudeur": 0.0,
+    "stepCount": 0
+  },
+  "transitions": [
+    {
+      "name": "stay_idle",
+      "from": "IDLE",
+      "guard": "vitesseTCP == 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "IDLE"
+    },
+    {
+      "name": "start_moving",
+      "from": "IDLE",
+      "guard": "vitesseTCP > 0 && vitesseExtrudeur == 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "MOVING"
+    },
+    {
+      "name": "idle_to_print",
+      "from": "IDLE",
+      "guard": "vitesseTCP > 0 && vitesseExtrudeur > 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "PRINTING"
+    },
+    {
+      "name": "continue_moving",
+      "from": "MOVING",
+      "guard": "vitesseTCP > 0 && vitesseExtrudeur == 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "MOVING"
+    },
+    {
+      "name": "start_printing",
+      "from": "MOVING",
+      "guard": "vitesseTCP > 0 && vitesseExtrudeur > 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "PRINTING"
+    },
+    {
+      "name": "moving_to_idle",
+      "from": "MOVING",
+      "guard": "vitesseTCP == 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "IDLE"
+    },
+    {
+      "name": "continue_printing",
+      "from": "PRINTING",
+      "guard": "vitesseTCP > 0 && vitesseExtrudeur > 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "PRINTING"
+    },
+    {
+      "name": "stop_printing",
+      "from": "PRINTING",
+      "guard": "vitesseTCP > 0 && vitesseExtrudeur == 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "MOVING"
+    },
+    {
+      "name": "printing_to_idle",
+      "from": "PRINTING",
+      "guard": "vitesseTCP == 0",
+      "action": "stepCount = stepCount + 1",
+      "to": "IDLE"
+    }
+  ]
+}

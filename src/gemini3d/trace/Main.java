@@ -11,32 +11,7 @@ import gemini3d.trace.sequencer.Sequencer;
 import java.time.Duration;
 import java.util.Optional;
 
-/**
- * Main -- Digital Twin Orchestrator
- *
- * Architecture (from the boss):
- *
- *   +--[T1: Emulator]--------+   +--[CircularFIFO]--+   +--[T2: Sequencer]------------------+
- *   |                         |   |                   |   |                                   |
- *   | trace.read() -> Reading |   |   ring buffer     |   |  config = sli.initial()           |
- *   | fifo.write(reading)     |==>|   write / read    |==>|  loop:                            |
- *   | sleep(period)           |   |   drops if full   |   |    meas = fifo.read()             |
- *   | loop                    |   |                   |   |    act  = sli.actions(meas, cfg)  |
- *   |                         |   |                   |   |    (out, cfg) = sli.execute(...)   |
- *   +-------------------------+   +-------------------+   |    viewer.display(out)             |
- *                                                         +-----------------------------------+
- *                                                                    |
- *                                                         +--[SLI: TraceSemanticsCip]---+
- *                                                         |  pure semantics (no threads)|
- *                                                         +----------------------------+
- *
- * Boss's pseudocode:
- *
- *   int main()
- *     fifo = new FIFO()
- *     emulator(trace, period, fifo)
- *     Sequencer(sli, fifo, viewer)
- */
+
 public class Main {
 
     /** Ring buffer capacity. */

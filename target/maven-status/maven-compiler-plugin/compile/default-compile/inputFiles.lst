@@ -1,0 +1,16 @@
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\emulator\Gemini3DEmulator.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\emulator\Reading.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\fifo\CircularFIFO.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\Main.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\membership\AutomatonSLIAdapter.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\membership\InclusionDemo.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\membership\InclusionRunner.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\membership\MembershipFactory.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\membership\RelaxedMembership.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\semantics\DeterministicIOSemantics.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\semantics\IOSemantics.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\semantics\MeasAction.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\semantics\Pair.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\semantics\StepCip.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\semantics\TraceSemanticsCip.java
+C:\Users\belhadmo\Desktop\gemini3d-trace\src\gemini3d\trace\sequencer\Sequencer.java
