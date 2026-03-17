@@ -1,0 +1,44 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'gemini3d'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// IMPORTANT: your source is in src/ not src/main/java/
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+repositories {
+    mavenLocal()       // ← finds automaton-semantics from Step 1
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.digitaltwin:automaton-semantics:1.0.0-SNAPSHOT'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'gemini3d.trace.Main'
+    }
+}

@@ -1,0 +1,69 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "gemini3d",
+    "module": "gemini3d-trace",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.4.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "gemini3d-trace-1.0-SNAPSHOT.jar",
+          "url": "gemini3d-trace-1.0-SNAPSHOT.jar",
+          "size": 48774,
+          "sha512": "5649f617c4fe3bc038e4d66a02949b5aef3e254d529ab2834f55f6545bc143c463fa88363775a40e3a466abfbf27439f9828542a2cec5ad7903786ba087a6bcf",
+          "sha256": "f5e1953ceaacbae46520983226be5ac08857ebded6ef31f472942eaaaa66da9d",
+          "sha1": "d56511a804c67602abe057c61c0a09c858c0fe5b",
+          "md5": "42c14f9f13b184d9d657bb53ada11d3f"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.digitaltwin",
+          "module": "automaton-semantics",
+          "version": {
+            "requires": "1.0.0-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "gemini3d-trace-1.0-SNAPSHOT.jar",
+          "url": "gemini3d-trace-1.0-SNAPSHOT.jar",
+          "size": 48774,
+          "sha512": "5649f617c4fe3bc038e4d66a02949b5aef3e254d529ab2834f55f6545bc143c463fa88363775a40e3a466abfbf27439f9828542a2cec5ad7903786ba087a6bcf",
+          "sha256": "f5e1953ceaacbae46520983226be5ac08857ebded6ef31f472942eaaaa66da9d",
+          "sha1": "d56511a804c67602abe057c61c0a09c858c0fe5b",
+          "md5": "42c14f9f13b184d9d657bb53ada11d3f"
+        }
+      ]
+    }
+  ]
+}
