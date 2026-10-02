@@ -3,25 +3,25 @@
   <groupId>gemini3d</groupId>
   <artifactId>gemini3d-trace</artifactId>
   <versioning>
-    <lastUpdated>20260317122534</lastUpdated>
+    <lastUpdated>20260824110038</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
-        <extension>jar</extension>
-        <value>1.0-SNAPSHOT</value>
-        <updated>20260317122534</updated>
-      </snapshotVersion>
-      <snapshotVersion>
         <extension>module</extension>
         <value>1.0-SNAPSHOT</value>
-        <updated>20260317122534</updated>
+        <updated>20260824110038</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20260824110038</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
         <value>1.0-SNAPSHOT</value>
-        <updated>20260317122534</updated>
+        <updated>20260824110038</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>

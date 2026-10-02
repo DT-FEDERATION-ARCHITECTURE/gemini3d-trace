@@ -39,7 +39,7 @@ public class Main {
         System.out.println();
 
         try {
-            String csvFile = (args.length > 0) ? args[0] : "egm.csv";
+            String csvFile = (args.length > 0) ? args[0] : "1785318294982_2026-02-26_12-25-28_logEgm.csv";
 
             // ==============================================================
             // 1. FIFO = new CircularFIFO(capacity)

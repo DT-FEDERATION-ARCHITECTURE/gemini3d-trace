@@ -27,11 +27,11 @@
         {
           "name": "gemini3d-trace-1.0-SNAPSHOT.jar",
           "url": "gemini3d-trace-1.0-SNAPSHOT.jar",
-          "size": 48774,
-          "sha512": "5649f617c4fe3bc038e4d66a02949b5aef3e254d529ab2834f55f6545bc143c463fa88363775a40e3a466abfbf27439f9828542a2cec5ad7903786ba087a6bcf",
-          "sha256": "f5e1953ceaacbae46520983226be5ac08857ebded6ef31f472942eaaaa66da9d",
-          "sha1": "d56511a804c67602abe057c61c0a09c858c0fe5b",
-          "md5": "42c14f9f13b184d9d657bb53ada11d3f"
+          "size": 57140,
+          "sha512": "6dbc9fdfe26edcfb34803d35c99bc53de1568cef481157a430f5ab2de6f7e6a31f9674e6990cff59874079f5c4f229076e945153d9a6ed2013dda9789a5099ed",
+          "sha256": "29e8fae9195f7bbe1c161479148168f8ef12a0834c94bcb361c316170008c1e2",
+          "sha1": "2c7b60bf0b7ce34e41e5316edd1cf15a5befec97",
+          "md5": "5da8cf18c3e81dc3d6f8067af768a915"
         }
       ]
     },
@@ -57,11 +57,11 @@
         {
           "name": "gemini3d-trace-1.0-SNAPSHOT.jar",
           "url": "gemini3d-trace-1.0-SNAPSHOT.jar",
-          "size": 48774,
-          "sha512": "5649f617c4fe3bc038e4d66a02949b5aef3e254d529ab2834f55f6545bc143c463fa88363775a40e3a466abfbf27439f9828542a2cec5ad7903786ba087a6bcf",
-          "sha256": "f5e1953ceaacbae46520983226be5ac08857ebded6ef31f472942eaaaa66da9d",
-          "sha1": "d56511a804c67602abe057c61c0a09c858c0fe5b",
-          "md5": "42c14f9f13b184d9d657bb53ada11d3f"
+          "size": 57140,
+          "sha512": "6dbc9fdfe26edcfb34803d35c99bc53de1568cef481157a430f5ab2de6f7e6a31f9674e6990cff59874079f5c4f229076e945153d9a6ed2013dda9789a5099ed",
+          "sha256": "29e8fae9195f7bbe1c161479148168f8ef12a0834c94bcb361c316170008c1e2",
+          "sha1": "2c7b60bf0b7ce34e41e5316edd1cf15a5befec97",
+          "md5": "5da8cf18c3e81dc3d6f8067af768a915"
         }
       ]
     }
